@@ -15,7 +15,7 @@ export function TabBar() {
     { name: 'Biometría', href: '/biometry', icon: Activity },
     { name: 'Nueva', href: '/add', icon: PlusSquare },
     { name: 'Diario', href: '/diary', icon: BookOpen },
-    { name: 'Perfil', href: '/profile', icon: User },
+    { name: 'Mi cuenta', href: '/profile', icon: User },
   ]
 
   return (
