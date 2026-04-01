@@ -12,6 +12,7 @@ interface PlantCardProps {
     genetica: string
     fecha_inicio: string
     ciclo_total_estimado: number
+    fase_actual: string
   }
 }
 
@@ -305,12 +306,6 @@ export function PlantCard({ plant }: PlantCardProps) {
           }}
         />
       </div>
-
-      <DoctorAIModal 
-        plantId={plant.id}
-        isOpen={isDoctorOpen}
-        onClose={() => setIsDoctorOpen(false)}
-      />
 
       {/* Modal de Confirmación de Borrado */}
       {isDeleteModalOpen && (
