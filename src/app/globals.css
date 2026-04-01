@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
+@keyframes scan {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --neon-orange: #ff6b00;
+  --obsidian-gray: #111111;
+  --obsidian-light: #222222;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-neon-orange: var(--neon-orange);
+  --color-obsidian-gray: var(--obsidian-gray);
+  --color-obsidian-light: var(--obsidian-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: color 0.3s ease;
 }
+
+/* Neon glow utility */
+.neon-glow {
+  box-shadow: 0 0 10px rgba(255, 107, 0, 0.5), 0 0 20px rgba(255, 107, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+.neon-text-glow {
+  text-shadow: 0 0 10px rgba(255, 107, 0, 0.8);
+  transition: text-shadow 0.3s ease;
+}
+
+/* 
+  ---------------------------------
+  Fase 7: Modo Fotoperíodo (Rojo) 
+  ---------------------------------
+*/
+html.red-mode-active body {
+  color: #888888; /* Atenuar textos blancos */
+}
+
+html.red-mode-active .text-white {
+  color: #888888 !important;
+}
+
+html.red-mode-active .bg-white {
+  background-color: #444444 !important;
+}
+
+html.red-mode-active .neon-glow,
+html.red-mode-active .neon-text-glow,
+html.red-mode-active [class*="shadow-[0_0_"] {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: brightness(0.5); /* Apagar neones */
+}
+
+/* Esconder elementos que emitan luz innecesaria en modo rojo */
+html.red-mode-active img,
+html.red-mode-active svg:not(.red-mode-safe) {
+  opacity: 0.5;
+}
+
