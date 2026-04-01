@@ -168,7 +168,6 @@ export default async function ProfilePage() {
               </div>
               <PhotoperiodSwitch />
             </div>
-
           </div>
 
           {/* Bloque 3: Continuación de la Lista */}
