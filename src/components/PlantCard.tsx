@@ -97,7 +97,8 @@ export function PlantCard({ plant }: PlantCardProps) {
 
   // Parámetros Ideales por Fase
   const getIdealParams = (fase: string) => {
-    switch (fase.toLowerCase()) {
+    const faseNormalizada = fase ? fase.toLowerCase() : 'vegetativo';
+    switch (faseNormalizada) {
       case 'germinación':
         return { temp: '22-26', hum: '70-80', vpd: '0.4-0.6', ph: '5.8', ec: '0.4', ppfd: '100-300' }
       case 'floración':
